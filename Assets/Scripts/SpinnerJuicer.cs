@@ -10,15 +10,15 @@ public class SpinnerJuicer : MonoBehaviour
 
     private bool _tapJuicing;
 
-    private ConnectionInputJuicer _inputJuicer;
+    public ConnectionInputJuicer InputJuicer;
 
     private void Awake(){
-        _inputJuicer = GetComponent<ConnectionInputJuicer>();
+        //InputJuicer = GetComponent<ConnectionInputJuicer>();
     }
 
-    private void StartJuicing(BridgeConnectionType p_type, Vector3 p_targetPosition){
+    public void StartJuicing(BridgeConnectionType p_type, Vector3 p_targetPosition){
         StartCoroutine(TapJuice());
-        _inputJuicer.StartJuicing(p_type, p_targetPosition);
+        InputJuicer.StartJuicing(p_type, p_targetPosition);
     }
 
     private IEnumerator TapJuice(){

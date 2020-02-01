@@ -7,9 +7,8 @@ public class GameManager : MonoBehaviour
     public float TimeLeft;
 
     public BridgeConnection[] Bridges;
-
-    public ConnectionInputJuicer ConnectionIJ;
     public ScreenJuicer ScreenJ;
+    public SpinnerJuicer SpinnerJuicer;
     private int _currentBridgeIndex;
 
     private bool _gameLoopActive;
@@ -21,28 +20,28 @@ public class GameManager : MonoBehaviour
     }
 
     private void Update(){
-        /*if(!_gameLoopActive)
+        if(!_gameLoopActive)
             return;
 
         if(TimeLeft <= 0f){
             LoseGame();
         }else{
             TimeLeft -= Time.deltaTime;
-        }*/
+        }
     }
 
     public void PlayGreen(){
-        ConnectionIJ.StartJuicing(BridgeConnectionType.Green, Bridges[_currentBridgeIndex].GetCurrentConnectionPosition());
+        SpinnerJuicer.StartJuicing(BridgeConnectionType.Green, Bridges[_currentBridgeIndex].GetCurrentConnectionPosition());
         PlayPiece(BridgeConnectionType.Green);
     }
 
     public void PlayBlue(){
-        ConnectionIJ.StartJuicing(BridgeConnectionType.Blue, Bridges[_currentBridgeIndex].GetCurrentConnectionPosition());
+        SpinnerJuicer.StartJuicing(BridgeConnectionType.Blue, Bridges[_currentBridgeIndex].GetCurrentConnectionPosition());
         PlayPiece(BridgeConnectionType.Blue);
     }
 
     public void PlayRed(){
-        ConnectionIJ.StartJuicing(BridgeConnectionType.Red, Bridges[_currentBridgeIndex].GetCurrentConnectionPosition());
+        SpinnerJuicer.StartJuicing(BridgeConnectionType.Red, Bridges[_currentBridgeIndex].GetCurrentConnectionPosition());
         PlayPiece(BridgeConnectionType.Red);
     }
     public void PlayPiece(BridgeConnectionType p_type){

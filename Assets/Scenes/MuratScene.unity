@@ -1837,8 +1837,8 @@ MonoBehaviour:
   - {fileID: 38030435}
   - {fileID: 1322575405}
   - {fileID: 2124104594}
-  ConnectionIJ: {fileID: 918786936}
   ScreenJ: {fileID: 918786937}
+  SpinnerJuicer: {fileID: 2068874816}
 --- !u!4 &918786935
 Transform:
   m_ObjectHideFlags: 0
@@ -3400,6 +3400,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   TapJuiceTime: 0.2
   TapJuiceScale: 15
+  InputJuicer: {fileID: 918786936}
 --- !u!114 &2068874817
 MonoBehaviour:
   m_ObjectHideFlags: 0
