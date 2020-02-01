@@ -17,7 +17,8 @@ public class SpinnerJuicer : MonoBehaviour
     }
 
     public void StartJuicing(BridgeConnectionType p_type, Vector3 p_targetPosition){
-        StartCoroutine(TapJuice());
+        if(!_tapJuicing)
+            StartCoroutine(TapJuice());
         InputJuicer.StartJuicing(p_type, p_targetPosition);
     }
 
