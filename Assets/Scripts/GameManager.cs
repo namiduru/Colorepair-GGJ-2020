@@ -21,38 +21,30 @@ public class GameManager : MonoBehaviour
     }
 
     private void Update(){
-        if(!_gameLoopActive)
+        /*if(!_gameLoopActive)
             return;
 
         if(TimeLeft <= 0f){
             LoseGame();
         }else{
             TimeLeft -= Time.deltaTime;
-        }
-
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            ConnectionIJ.StartJuicing(BridgeConnectionType.Blue, Bridges[_currentBridgeIndex].GetCurrentConnectionPosition());
-            PlayPiece(BridgeConnectionType.Blue);
-        }
-
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            ConnectionIJ.StartJuicing(BridgeConnectionType.Green, Bridges[_currentBridgeIndex].GetCurrentConnectionPosition());
-            PlayPiece(BridgeConnectionType.Green);
-        }
-
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            ConnectionIJ.StartJuicing(BridgeConnectionType.Red, Bridges[_currentBridgeIndex].GetCurrentConnectionPosition());
-            PlayPiece(BridgeConnectionType.Red);
-        }
-
-        if(Input.GetKeyDown(KeyCode.Space)){
-            ConnectionIJ.StartJuicing(BridgeConnectionType.Red, Bridges[_currentBridgeIndex].GetCurrentConnectionPosition());
-        }
+        }*/
     }
 
+    public void PlayGreen(){
+        ConnectionIJ.StartJuicing(BridgeConnectionType.Green, Bridges[_currentBridgeIndex].GetCurrentConnectionPosition());
+        PlayPiece(BridgeConnectionType.Green);
+    }
+
+    public void PlayBlue(){
+        ConnectionIJ.StartJuicing(BridgeConnectionType.Blue, Bridges[_currentBridgeIndex].GetCurrentConnectionPosition());
+        PlayPiece(BridgeConnectionType.Blue);
+    }
+
+    public void PlayRed(){
+        ConnectionIJ.StartJuicing(BridgeConnectionType.Red, Bridges[_currentBridgeIndex].GetCurrentConnectionPosition());
+        PlayPiece(BridgeConnectionType.Red);
+    }
     public void PlayPiece(BridgeConnectionType p_type){
         bool result = Bridges[_currentBridgeIndex].Play(p_type);
 
