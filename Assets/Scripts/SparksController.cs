@@ -5,13 +5,26 @@ using UnityEngine;
 public class SparksController : MonoBehaviour
 {
     public Transform[] TravelPositionTransforms;
+    private int currentIndex = 0;
 
     private void Start(){
-        StartMovement();
+        // StartMovement();
     }
 
     public void StartMovement(){
         StartCoroutine(MovementIterator());
+    }
+
+    private IEnumerator MoveToNextCheckPoint(){
+
+        if (this.currentIndex + 1 == TravelPositionTransforms.Length) {
+            yield return null;
+        } else {
+            yield return StartCoroutine(MoveBetweenPositions(TravelPositionTransforms[this.currentIndex].position
+            , TravelPositionTransforms[this.currentIndex + 1].position));
+        }
+
+        yield return null;
     }
 
     private IEnumerator MovementIterator(){

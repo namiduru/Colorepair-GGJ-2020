@@ -10,6 +10,11 @@ public class BridgeConnection : MonoBehaviour
 
     private BridgeConnectionJuicer _bridgeConnectionJuicer;
 
+    // Order is red, green, blue
+    [Header("BridgeMaterials")]
+    [SerializeField] Material[] normalColors;
+    [SerializeField] Material[] lightMaterials; 
+
     private void Awake(){
         AddSequence(BridgeConnections);
 
@@ -18,7 +23,9 @@ public class BridgeConnection : MonoBehaviour
 
     private void Start(){
         for(int i = 0; i < ConnectionPieceGameObjects.Length; i++){
-            ConnectionPieceGameObjects[i].SetActive(false);
+            //ConnectionPieceGameObjects[i].SetActive(false);
+            setBridgeColor(ConnectionPieceGameObjects[i], false);
+
         }
         _bridgeConnectionJuicer.BreakConnections();
     }
@@ -47,5 +54,31 @@ public class BridgeConnection : MonoBehaviour
         yield return new WaitForSeconds(1.1f);
 
         ConnectionPieceGameObjects[p_rebuildIndex].SetActive(true);
+        // setBridgeColor(ConnectionPieceGameObjects[p_rebuildIndex], true);
+    }
+
+
+    private void setBridgeColor(GameObject gameObject, bool isActive = true) {
+
+        Material[] materials;
+        if (isActive) {
+            materials = normalColors;
+        } else {
+            materials = lightMaterials;
+        }
+
+        switch(gameObject.tag) {
+            case "RedBridge": 
+                gameObject.GetComponent<MeshRenderer>().materials[0] = materials[0];
+                break;
+            case "GreenBridge":
+                gameObject.GetComponent<MeshRenderer>().materials[0] = materials[1];
+                break;
+            case "BlueBridge":
+                gameObject.GetComponent<MeshRenderer>().materials[0] = materials[2];
+                break;
+            default:
+                break;
+        }
     }
 }
