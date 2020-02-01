@@ -54,7 +54,7 @@ public class BridgeConnection : MonoBehaviour
         yield return new WaitForSeconds(1.1f);
 
         ConnectionPieceGameObjects[p_rebuildIndex].SetActive(true);
-        // setBridgeColor(ConnectionPieceGameObjects[p_rebuildIndex], true);
+        setBridgeColor(ConnectionPieceGameObjects[p_rebuildIndex], true);
     }
 
 
@@ -69,13 +69,13 @@ public class BridgeConnection : MonoBehaviour
 
         switch(gameObject.tag) {
             case "RedBridge": 
-                gameObject.GetComponent<MeshRenderer>().materials[0] = materials[0];
+                gameObject.GetComponent<MeshRenderer>().material = materials[0];
                 break;
             case "GreenBridge":
-                gameObject.GetComponent<MeshRenderer>().materials[0] = materials[1];
+                gameObject.GetComponent<MeshRenderer>().material = materials[1];
                 break;
             case "BlueBridge":
-                gameObject.GetComponent<MeshRenderer>().materials[0] = materials[2];
+                gameObject.GetComponent<MeshRenderer>().material = materials[2];
                 break;
             default:
                 break;
