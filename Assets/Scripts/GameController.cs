@@ -12,10 +12,10 @@ public class GameController : MonoBehaviour
     void Update()
     {
         if (Input.GetMouseButtonDown(0) && Input.mousePosition.y < Screen.height * heightCoefficient) {
-            if (spinner.transform.eulerAngles.z > 180 && spinner.transform.eulerAngles.z < 300) {
+            if (spinner.transform.eulerAngles.z > 240 && spinner.transform.eulerAngles.z < 360) {
                 Debug.Log("Green is clicked!");
                 GM.PlayGreen();
-            } else if (spinner.transform.eulerAngles.z > 60 && spinner.transform.eulerAngles.z < 180) {
+            } else if (spinner.transform.eulerAngles.z > 0 && spinner.transform.eulerAngles.z < 120) {
                 Debug.Log("Red is clicked!");
                 GM.PlayRed();
             } else {
