@@ -10,17 +10,16 @@ public class StartSceneManager : MonoBehaviour
     private bool isUpward = true;
     private bool isAnimationStarted = false;
 
-    private float destinationPoint = 120;
 
     void Update() {
         if (isAnimationStarted) {
             if (isUpward) {
-                transform.position = new Vector2(transform.position.x, transform.position.y + 1);
-                if (transform.position.y > 120) {
+                transform.position = new Vector2(transform.position.x, transform.position.y + 2);
+                if (transform.position.y > 100) {
                     isUpward = false;
                 }
             } else {
-                transform.position = new Vector2(transform.position.x, transform.position.y - 1);
+                transform.position = new Vector2(transform.position.x, transform.position.y - 2);
                 if (transform.position.y < 60) {
                     isUpward = true;
                 }
