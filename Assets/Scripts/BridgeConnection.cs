@@ -25,7 +25,6 @@ public class BridgeConnection : MonoBehaviour
         for(int i = 0; i < ConnectionPieceGameObjects.Length; i++){
             //ConnectionPieceGameObjects[i].SetActive(false);
             setBridgeColor(ConnectionPieceGameObjects[i], false);
-
         }
         _bridgeConnectionJuicer.BreakConnections();
     }
@@ -53,7 +52,7 @@ public class BridgeConnection : MonoBehaviour
     private IEnumerator DelayedRebuild(int p_rebuildIndex){
         yield return new WaitForSeconds(1.1f);
 
-        ConnectionPieceGameObjects[p_rebuildIndex].SetActive(true);
+        // ConnectionPieceGameObjects[p_rebuildIndex].SetActive(true);
         setBridgeColor(ConnectionPieceGameObjects[p_rebuildIndex], true);
     }
 
