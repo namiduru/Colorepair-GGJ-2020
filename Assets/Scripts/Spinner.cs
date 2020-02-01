@@ -4,15 +4,12 @@ using UnityEngine;
 
 public class Spinner : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] float SpinnerVelocity = 5f;
 
     // Update is called once per frame
     void Update()
     {
-        
+        transform.Rotate(0f, 0f, SpinnerVelocity);
+        // Debug.Log(transform.rotation.eulerAngles.z);
     }
 }
