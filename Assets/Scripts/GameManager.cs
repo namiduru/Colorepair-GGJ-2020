@@ -13,6 +13,11 @@ public class GameManager : MonoBehaviour
 
     private bool _gameLoopActive;
 
+    #region UI Elements
+    [Header("UI Elements")]
+    public TimeDecreaser timeDecreaser;
+    #endregion
+
     private void Awake(){
         TimeLeft = 30f;
 
@@ -55,6 +60,8 @@ public class GameManager : MonoBehaviour
         }
         else
         {
+            timeDecreaser.displayTimeDecrease();
+            DecreaseGameTime(2f);
             Debug.Log("Incorrect");
         }
 
@@ -74,6 +81,10 @@ public class GameManager : MonoBehaviour
 
     public void AddGameTime(float p_amount){
         TimeLeft += p_amount;
+    }
+
+    public void DecreaseGameTime(float p_amount) {
+        TimeLeft -= p_amount;
     }
 
     private void LoseGame(){
