@@ -9,7 +9,7 @@ public class Spinner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Rotate(0f, 0f, SpinnerVelocity);
+        transform.Rotate(0f, 0f, SpinnerVelocity * Time.deltaTime * 50f);
         // Debug.Log(transform.rotation.eulerAngles.z);
     }
 }

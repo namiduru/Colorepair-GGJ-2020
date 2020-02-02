@@ -22,6 +22,8 @@ public class GameManager : MonoBehaviour
         TimeLeft = 30f;
 
         _gameLoopActive = true;
+
+        Time.timeScale = 1;
     }
 
     private void Update(){
@@ -85,7 +87,11 @@ public class GameManager : MonoBehaviour
     }
 
     public void DecreaseGameTime(float p_amount) {
-        TimeLeft -= p_amount;
+        if (TimeLeft - p_amount <= 0) {
+            TimeLeft = 0;
+        } else {
+            TimeLeft -= p_amount;
+        }
     }
 
     private void LoseGame(){
