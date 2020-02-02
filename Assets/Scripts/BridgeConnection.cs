@@ -22,7 +22,17 @@ public class BridgeConnection : MonoBehaviour
     }
 
     private void Start(){
-        for(int i = 0; i < ConnectionPieceGameObjects.Length; i++){
+        for (int i = 0; i < ConnectionPieceGameObjects.Length; i++)
+        {
+            //ConnectionPieceGameObjects[i].SetActive(false);
+            setBridgeColor(ConnectionPieceGameObjects[i], false);
+        }
+        BreakConnections();
+    }
+
+    public void BreakConnections(){
+        for (int i = 0; i < ConnectionPieceGameObjects.Length; i++)
+        {
             //ConnectionPieceGameObjects[i].SetActive(false);
             setBridgeColor(ConnectionPieceGameObjects[i], false);
         }

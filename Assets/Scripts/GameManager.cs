@@ -67,6 +67,7 @@ public class GameManager : MonoBehaviour
 
         if(Bridges[_currentBridgeIndex].IsComplete()){
             Debug.Log("Bridge Complete");
+            StartCoroutine(DelayedBridgeCollapse());
             GoToNextBridge();
         }
     }
@@ -95,5 +96,15 @@ public class GameManager : MonoBehaviour
     private void WinGame(){
         Debug.Log("GameComplete");
         _gameLoopActive = false;
+    }
+
+    private IEnumerator DelayedBridgeCollapse(){
+        yield return new WaitForSeconds(1.5f);
+
+        Bridges[_currentBridgeIndex - 1].BreakConnections();
+        
+        yield return new WaitForSeconds(0.5f);
+
+        Bridges[_currentBridgeIndex - 1].gameObject.SetActive(false);
     }
 }

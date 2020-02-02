@@ -20,8 +20,12 @@ public class ConnectionInputJuicer : MonoBehaviour
             //StartJuicing(BridgeConnectionType.Red, BezierPoints[2].position);
         }
 
-        Debug.DrawLine(BezierPoints[0].position, BezierPoints[1].position, Color.blue);
-        Debug.DrawLine(BezierPoints[1].position, BezierPoints[2].position, Color.blue);
+        //Debug.DrawLine(BezierPoints[0].position, BezierPoints[1].position, Color.blue);
+        //Debug.DrawLine(BezierPoints[1].position, BezierPoints[2].position, Color.blue);
+
+        Debug.DrawLine(BlueRefRect.transform.position, BlueRefRect.transform.position + BlueRefRect.up * 5f, Color.blue);
+        Debug.DrawLine(RedRefRect.transform.position, RedRefRect.transform.position + RedRefRect.up * 5f, Color.red);
+        Debug.DrawLine(GreenRefRect.transform.position, GreenRefRect.transform.position + GreenRefRect.up * 5f, Color.green);
     }
 
     public void StartJuicing(BridgeConnectionType p_type, Vector3 p_targetPosition){
@@ -51,6 +55,13 @@ public class ConnectionInputJuicer : MonoBehaviour
                     break;
                 }
         }
+
+
+        //bezierDirection = Quaternion.AngleAxis(180, Vector3.forward) * bezierDirection;
+
+        Debug.Log(bezierDirection);
+
+        //Debug.Break();
 
         middlePosition = (startPosition + p_targetPosition) / 2;
 
@@ -93,12 +104,14 @@ public class ConnectionInputJuicer : MonoBehaviour
                 }
         }
 
-        for (int i = 0; i < 200; i++)
+        for (int i = 0; i < 40; i++)
         {
             GameObject temp = Instantiate(CubePrefab);
             temp.transform.position = selectedStartTransform.position
                 + selectedStartTransform.right * Random.Range(-1f, 1f)
                 + selectedStartTransform.up * Random.Range(-0.45f, 0.45f);
+
+                temp.transform.localScale *= 1.3f;
 
             temp.GetComponent<MeshRenderer>().material = selectedMaterial;
 
